@@ -1,0 +1,7 @@
+extends: ../../.eslintrc.yml
+rules:
+  no-useless-constructor: off
+  no-new: off
+  camelcase: off
+  import/extensions: off
+  import/no-unresolved: off

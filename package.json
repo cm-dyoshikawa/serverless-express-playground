@@ -1,0 +1,46 @@
+{
+  "name": "serverless-express-playground",
+  "author": "dyoshikawa",
+  "version": "0.0.0",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "deploy": "npm run build -w server && npm run deploy -w iac",
+    "prepare": "husky install",
+    "postinstall": "npm run prepare",
+    "check": "secretlint '**/*'"
+  },
+  "devDependencies": {
+    "@secretlint/secretlint-rule-preset-recommend": "^4.1.4",
+    "@tsconfig/recommended": "^1.0.1",
+    "@types/node": "^17.0.18",
+    "@typescript-eslint/eslint-plugin": "^5.12.0",
+    "@typescript-eslint/parser": "^5.12.0",
+    "esbuild": "^0.14.21",
+    "esbuild-register": "^3.3.2",
+    "eslint": "^8.9.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.4",
+    "husky": "^7.0.0",
+    "lint-staged": "^12.3.4",
+    "prettier": "^2.5.1",
+    "secretlint": "^4.1.4",
+    "typescript": "^4.5.5"
+  },
+  "engines": {
+    "npm": "8.x",
+    "node": "16.x"
+  },
+  "volta": {
+    "node": "16.14.0",
+    "npm": "8.5.0"
+  },
+  "lint-staged": {
+    "*": [
+      "bash -c 'npm run check'"
+    ]
+  }
+}
